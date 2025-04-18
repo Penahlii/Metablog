@@ -1,13 +1,11 @@
 import React from "react";
-import Header from "@/components/ui/Header";
-import Footer from "@/components/ui/Footer";
 
 const Homepage = () => {
   return (
-    <>
-      <Header />
-      <Footer />
-    </>
+    <div className="container px-4 py-8">
+      <h1 className="text-2xl font-bold">Welcome to MetaBlog</h1>
+      <p className="mt-4 text-gray-600">Start writing amazing blogs today.</p>
+    </div>
   );
 };
 

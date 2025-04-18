@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-50 text-gray-700 text-sm">
+    <footer className="bg-#f6f6f7 text-gray-700 text-sm">
       <div className="container px-4 py-12 flex flex-col md:flex-row justify-between gap-8 border-t border-gray-200">
         {/* Left Section: About */}
         <div className="max-w-md">
@@ -28,16 +28,24 @@ export default function Footer() {
             <h3 className="font-semibold mb-3">Quick Link</h3>
             <ul className="space-y-2">
               <li>
-                <Link className="hover:text-black" href="/homepage">Home</Link>
+                <Link className="hover:text-black" href="/homepage">
+                  Home
+                </Link>
               </li>
               <li>
-                <Link className="hover:text-black" href="/write-blog">Write a Blog</Link>
+                <Link className="hover:text-black" href="/write-blog">
+                  Write a Blog
+                </Link>
               </li>
               <li>
-                <Link className="hover:text-black" href="/my-blogs">My Blogs</Link>
+                <Link className="hover:text-black" href="/my-blogs">
+                  My Blogs
+                </Link>
               </li>
               <li>
-                <Link className="hover:text-black" href="/contact">Contact</Link>
+                <Link className="hover:text-black" href="/contact">
+                  Contact
+                </Link>
               </li>
             </ul>
           </div>
@@ -45,22 +53,34 @@ export default function Footer() {
             <h3 className="font-semibold mb-3">Category</h3>
             <ul className="space-y-2">
               <li>
-                <Link className="hover:text-black" href="/category/lifestyle">Lifestyle</Link>
+                <Link className="hover:text-black" href="/category/lifestyle">
+                  Lifestyle
+                </Link>
               </li>
               <li>
-                <Link className="hover:text-black" href="/category/technology">Technology</Link>
+                <Link className="hover:text-black" href="/category/technology">
+                  Technology
+                </Link>
               </li>
               <li>
-                <Link className="hover:text-black" href="/category/travel">Travel</Link>
+                <Link className="hover:text-black" href="/category/travel">
+                  Travel
+                </Link>
               </li>
               <li>
-                <Link className="hover:text-black" href="/category/business">Business</Link>
+                <Link className="hover:text-black" href="/category/business">
+                  Business
+                </Link>
               </li>
               <li>
-                <Link className="hover:text-black" href="/category/economy">Economy</Link>
+                <Link className="hover:text-black" href="/category/economy">
+                  Economy
+                </Link>
               </li>
               <li>
-                <Link className="hover:text-black" href="/category/sports">Sports</Link>
+                <Link className="hover:text-black" href="/category/sports">
+                  Sports
+                </Link>
               </li>
             </ul>
           </div>
@@ -85,9 +105,15 @@ export default function Footer() {
           </div>
         </div>
         <div className="space-x-4 text-right w-full md:w-auto">
-          <Link className="hover:text-black" href="/terms">Terms of Use</Link>
-          <Link className="hover:text-black" href="/privacy">Privacy Policy</Link>
-          <Link className="hover:text-black" href="/cookies">Cookie Policy</Link>
+          <Link className="hover:text-black" href="/terms">
+            Terms of Use
+          </Link>
+          <Link className="hover:text-black" href="/privacy">
+            Privacy Policy
+          </Link>
+          <Link className="hover:text-black" href="/cookies">
+            Cookie Policy
+          </Link>
         </div>
       </div>
     </footer>
