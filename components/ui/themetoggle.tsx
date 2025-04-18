@@ -1,24 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import { useThemeStore } from "../../store/theme";
 
 export function ThemeToggle() {
-  const [isDark, setIsDark] = useState(false);
+  const { darkmode, toggle } = useThemeStore((state) => state);
 
   return (
     <button
-      onClick={() => setIsDark(!isDark)}
+      onClick={toggle}
       className={`w-[46px] h-[24px] ml-[36px] rounded-full p-[2px] transition-colors duration-200 ease-in-out ${
-        isDark ? "bg-[#4b6bfb]" : "bg-gray-200"
+        darkmode ? "bg-[#4b6bfb]" : "bg-gray-200"
       }`}
       aria-label="Toggle theme"
     >
       <div
         className={`w-[20px] h-[20px] rounded-full bg-white transition-transform duration-200 ease-in-out flex items-center justify-center ${
-          isDark ? "translate-x-[22px]" : "translate-x-0"
+          darkmode ? "translate-x-[22px]" : "translate-x-0"
         }`}
       >
-        {isDark ? (
+        {darkmode ? (
           <svg
             width="14"
             height="14"
