@@ -1,6 +1,6 @@
 "use client";
 
-import { useThemeStore } from "../../store/theme";
+import { useThemeStore } from "@/store/theme";
 
 export function ThemeToggle() {
   const { darkmode, toggle } = useThemeStore((state) => state);

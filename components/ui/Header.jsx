@@ -1,14 +1,24 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { ThemeToggle } from "./themetoggle";
+import { useThemeStore } from "@/store/theme";
 
 const Header = () => {
+  const { darkmode, toggle } = useThemeStore((state) => state);
+
   return (
-    <header className="py-8 ">
+    <header className="py-8">
       <div className="container px-4 flex items-center justify-between">
         <Link href="/homepage">
-          <Image src="/Logo.png" alt="MetaBlog Logo" width={158} height={36} />
+          <Image
+            src={darkmode ? "/LogoDark.png" : "/Logo.png"}
+            alt="MetaBlog Logo"
+            width={158}
+            height={36}
+          />
         </Link>
 
         <ul className="flex gap-[40px] text-sm font-medium text-gray-600">
