@@ -3,8 +3,8 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-#f6f6f7 text-gray-700 text-sm">
-      <div className="container px-4 py-12 flex flex-col md:flex-row justify-between gap-8 border-t border-gray-200">
+    <footer className="bg-[#f6f6f7] text-gray-700 text-sm border-t border-gray-200">
+      <div className="container px-4 py-12 flex flex-col md:flex-row justify-between gap-8">
         {/* Left Section: About */}
         <div className="max-w-md">
           <h3 className="font-semibold mb-3">About</h3>
@@ -18,7 +18,7 @@ export default function Footer() {
             <strong>Email:</strong> penahliibrahim58@gmail.com
           </p>
           <p className="text-left">
-            <strong>Phone:</strong> +994 55 216 59 85
+            <strong>Phone:</strong> +994 55 216 59 85 
           </p>
         </div>
 

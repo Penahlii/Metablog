@@ -9,7 +9,7 @@ export function ThemeToggle() {
     <button
       onClick={() => setIsDark(!isDark)}
       className={`w-[46px] h-[24px] ml-[36px] rounded-full p-[2px] transition-colors duration-200 ease-in-out ${
-        isDark ? "bg-gray-600" : "bg-gray-200"
+        isDark ? "bg-[#4b6bfb]" : "bg-gray-200"
       }`}
       aria-label="Toggle theme"
     >

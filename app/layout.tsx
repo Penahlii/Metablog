@@ -1,7 +1,5 @@
 import { Geist } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/ui/Header";
-import Footer from "@/components/ui/Footer";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -20,16 +18,12 @@ const geistSans = Geist({
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="en" className={geistSans.className} suppressHydrationWarning>
-      <body className="min-h-screen flex flex-col">
-        <Header />
-        <main className="flex-grow">{children}</main>
-        <Footer />
-      </body>
+      <body className="">{children}</body>
     </html>
   );
 }
