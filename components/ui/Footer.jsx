@@ -79,7 +79,7 @@ export default function Footer() {
                   <li key={category.id}>
                     <Link
                       className="hover:text-black"
-                      href={`/category/${category.name}`}
+                      href={`/homepage/?category=${category.id}`}
                     >
                       {category.name}
                     </Link>
