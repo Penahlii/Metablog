@@ -9,7 +9,7 @@ export default async function Homepage({
   searchParams: { category?: string };
 }) {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
-  const category = searchParams.category;
+  const category = (await searchParams).category;
 
   const res = await fetch(
     `${baseUrl}/api/blogs${category ? `?category=${category}` : ""}`,

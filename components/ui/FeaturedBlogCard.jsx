@@ -9,6 +9,7 @@ export default function FeaturedBlogCard({ blog }) {
   const { darkmode } = useThemeStore();
   const [categoryName, setCategoryName] = useState("");
   const [authorEmail, setAuthorEmail] = useState("");
+  const [showFullTitle, setShowFullTitle] = useState(false);
 
   useEffect(() => {
     const fetchDetails = async () => {
@@ -33,14 +34,52 @@ export default function FeaturedBlogCard({ blog }) {
     fetchDetails();
   }, [blog]);
 
+  const truncateTitle = (title) => {
+    return title.length > 69 ? title.substring(0, 57) + "..." : title;
+  };
+
   return (
-    <div className="debug-container">
-      <p>Debug Info:</p>
-      <p>Raw Category ID: {blog?.category}</p>
-      <p>Processed Category Name: {categoryName}</p>
-      <p>Raw Author ID: {blog?.author}</p>
-      <p>Processed Author Email: {authorEmail}</p>
-      <p>Blog Title: {blog?.title}</p>
+    <div className="relative container px-4 h-[500px] rounded-[12px] overflow-hidden group cursor-pointer mb-16">
+      <Link href={`/blog/${blog.id}`} className="block h-full rounded-[12px] overflow-hidden">
+        <div 
+          className="relative h-full w-full rounded-[12px] overflow-hidden"
+          style={{ backgroundImage: `url(${blog.thumbnail})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/90"></div>
+          
+          <div className="absolute bottom-0 w-full p-6 text-white">
+            <div className="mb-4">
+              <span className="px-3 py-1 text-sm bg-blue-600 rounded-full">
+                {categoryName}
+              </span>
+            </div>
+            
+            <h2 
+              className="text-2xl font-bold mb-3 transition-all duration-300 max-w-[500px]"
+              onMouseEnter={() => setShowFullTitle(true)}
+              onMouseLeave={() => setShowFullTitle(false)}
+            >
+              {showFullTitle ? blog.title : truncateTitle(blog.title)}
+            </h2>
+            
+            <div className="flex items-center gap-4 text-sm text-gray-300">
+              <button 
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.location.href = `mailto:${authorEmail}`;
+                }}
+                className="hover:text-blue-400 transition-colors"
+              >
+                {authorEmail}
+              </button>
+              <span>•</span>
+              <time>
+                {format(new Date(blog.created_at), 'MMMM dd, yyyy')}
+              </time>
+            </div>
+          </div>
+        </div>
+      </Link>
     </div>
   );
 }
