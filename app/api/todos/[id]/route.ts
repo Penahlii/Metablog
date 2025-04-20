@@ -3,7 +3,7 @@ import { createClient } from "@/utils/supabase/server";
 // @ts-ignore
 export async function GET(req: Request, {params} : { params: { id: string } }) {
     const supabase = await createClient();
-    const id = params.id;
+    const id = (await params).id;;
 
     if (!id) return new Response(JSON.stringify({ error: 'ID is required' }), { status: 400 });
 
@@ -20,7 +20,7 @@ export async function GET(req: Request, {params} : { params: { id: string } }) {
 export async function PUT(req: Request, {params} : { params: { id: string } }) {
     const supabase = await createClient();
     const body = await req.json();
-    const id = params.id;
+    const id = (await params).id;;
     const {title, description, completed } = body;
 
     if (!id) return new Response(JSON.stringify({ error: 'ID is required' }), { status: 400 });

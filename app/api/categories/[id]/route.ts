@@ -13,13 +13,13 @@ export async function GET(
   }
 
   const { data, error } = await supabase
-    .from("blogs")
+    .from("categories")
     .select("*")
     .eq("id", id)
     .single();
 
   if (error) {
-    return NextResponse.json({ error: "Todo not found" }, { status: 404 });
+    return NextResponse.json({ error: "Category not found" }, { status: 404 });
   }
 
   return NextResponse.json(data);
