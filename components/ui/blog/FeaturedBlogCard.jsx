@@ -39,31 +39,38 @@ export default function FeaturedBlogCard({ blog }) {
   };
 
   return (
-    <div className="relative container px-4 h-[500px] rounded-[12px] overflow-hidden group cursor-pointer mb-16">
-      <Link href={`/blog/${blog.id}`} className="block h-full rounded-[12px] overflow-hidden">
-        <div 
-          className="relative h-full w-full rounded-[12px] overflow-hidden"
-          style={{ backgroundImage: `url(${blog.thumbnail})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+    <div className="relative container px-4 h-[500px] rounded-[12px] overflow-hidden group cursor-pointer mb-16 transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl">
+      <Link
+        href={`/blog/${blog.id}`}
+        className="block h-full rounded-[12px] overflow-hidden"
+      >
+        <div
+          className="relative h-full w-full rounded-[12px] overflow-hidden object-cover"
+          style={{
+            backgroundImage: `url(${blog.thumbnail})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
         >
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/90"></div>
-          
+
           <div className="absolute bottom-0 w-full p-6 text-white">
             <div className="mb-4">
               <span className="px-3 py-1 text-sm bg-blue-600 rounded-md">
                 {categoryName}
               </span>
             </div>
-            
-            <h2 
+
+            <h2
               className="text-2xl font-bold mb-3 transition-all duration-300 max-w-[500px]"
               onMouseEnter={() => setShowFullTitle(true)}
               onMouseLeave={() => setShowFullTitle(false)}
             >
               {showFullTitle ? blog.title : truncateTitle(blog.title)}
             </h2>
-            
+
             <div className="flex items-center gap-4 text-sm text-gray-300">
-              <button 
+              <button
                 onClick={(e) => {
                   e.preventDefault();
                   window.location.href = `mailto:${authorEmail}`;
@@ -73,9 +80,7 @@ export default function FeaturedBlogCard({ blog }) {
                 {authorEmail}
               </button>
               <span>•</span>
-              <time>
-                {format(new Date(blog.created_at), 'MMMM dd, yyyy')}
-              </time>
+              <time>{format(new Date(blog.created_at), "MMMM dd, yyyy")}</time>
             </div>
           </div>
         </div>

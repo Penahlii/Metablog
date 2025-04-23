@@ -53,7 +53,7 @@ export default function BlogCard({ blog, canDelete = false }: BlogCardProps) {
     <div className="group relative w-full">
       <div
         onClick={() => router.push(`/blog/${blog.id}`)}
-        className={`cursor-pointer max-w-[420px] mx-auto w-full`}
+        className={`cursor-pointer max-w-[420px] mx-auto w-full transition-transform duration-300 ease-in-out group-hover:scale-[1.02]`}
       >
         <div
           className={`rounded-xl overflow-hidden shadow-md border transition-colors duration-300 ${

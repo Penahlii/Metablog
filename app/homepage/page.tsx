@@ -1,9 +1,7 @@
 import Header from "@/components/ui/Header";
 import Footer from "@/components/ui/Footer";
 import PageWrapper from "@/components/ui/PageWrapper";
-import FeaturedBlogCard from "@/components/ui/FeaturedBlogCard";
-import BlogCard from "@/components/ui/BlogCard";
-import BlogList from "@/components/ui/BlogList";
+import BlogList from "@/components/ui/blog/BlogList";
 
 export default async function Homepage({
   searchParams,

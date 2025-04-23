@@ -17,8 +17,13 @@ export default function BlogList({
   const isHomepage = variant === "homepage";
   const hasFeatured = isHomepage && blogs.length > 0;
 
-  const regularBlogs = hasFeatured ? blogs.slice(0, -1) : blogs;
-  const featuredBlog = hasFeatured ? blogs[blogs.length - 1] : null;
+  const sortedBlogs = [...blogs].sort(
+    (a, b) =>
+      new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+  );
+
+  const featuredBlog = hasFeatured ? sortedBlogs[0] : null;
+  const regularBlogs = hasFeatured ? sortedBlogs.slice(1) : sortedBlogs;
 
   return (
     <div className="mb-16">
@@ -29,7 +34,7 @@ export default function BlogList({
           </div>
         )}
 
-<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-6 px-4 md:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-6 px-4 md:px-6 lg:px-8">
           {regularBlogs.map((blog) => (
             <BlogCard
               key={blog.id}

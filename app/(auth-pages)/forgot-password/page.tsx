@@ -1,6 +1,6 @@
 import { forgotPasswordAction } from "@/app/actions";
-import { FormMessage, Message } from "@/components/form-message";
-import { SubmitButton } from "@/components/submit-button";
+import { FormMessage, Message } from "@/components/ui/auth/form-message";
+import { SubmitButton } from "@/components/ui/auth/submit-button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
@@ -11,7 +11,7 @@ export default async function ForgotPassword(props: {
   const searchParams = await props.searchParams;
   return (
     <div className="w-full h-screen flex items-center justify-center">
-        <form className="w-[400px] flex flex-col gap-2 p-5 border border-zinc-300 rounded-md">
+      <form className="w-[400px] flex flex-col gap-2 p-5 border border-zinc-300 rounded-md">
         <div>
           <h1 className="text-2xl font-medium">Forgot Password?</h1>
           <p className="text-sm text-secondary-foreground">
@@ -24,9 +24,7 @@ export default async function ForgotPassword(props: {
         <div className="flex flex-col gap-2 [&>input]:mb-3 mt-8">
           <Label htmlFor="email">Email</Label>
           <Input name="email" placeholder="you@example.com" required />
-          <SubmitButton formAction={forgotPasswordAction}>
-            Proceed
-          </SubmitButton>
+          <SubmitButton formAction={forgotPasswordAction}>Proceed</SubmitButton>
           <FormMessage message={searchParams} />
         </div>
       </form>

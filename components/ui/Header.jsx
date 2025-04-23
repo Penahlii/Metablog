@@ -1,4 +1,3 @@
-
 "use client";
 
 import Image from "next/image";
@@ -42,7 +41,7 @@ const Header = () => {
             </Link>
           </li>
           <li>
-            <Link className={navLinkClass} href="/my-blogs">
+            <Link className={navLinkClass} href="/author-blogs">
               My Blogs
             </Link>
           </li>
