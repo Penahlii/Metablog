@@ -101,7 +101,7 @@ export default function BlogCard({ blog, canDelete = false }: BlogCardProps) {
 
             <div className="flex items-center gap-4 text-sm">
               <Link
-                href={`/author/${blog.author}`}
+                href={`/author-blogs/?author=${blog.author}`}
                 className={`transition-colors ${
                   darkmode
                     ? "text-gray-400 hover:text-white"
@@ -111,7 +111,7 @@ export default function BlogCard({ blog, canDelete = false }: BlogCardProps) {
                 onMouseEnter={() => setShowFullEmail(true)}
                 onMouseLeave={() => setShowFullEmail(false)}
               >
-                {showFullEmail ? authorEmail : truncateText(authorEmail, 20)}
+                {showFullEmail ? authorEmail : truncateText(authorEmail, 30)}
               </Link>
               <span className={darkmode ? "text-gray-500" : "text-gray-400"}>
                 •

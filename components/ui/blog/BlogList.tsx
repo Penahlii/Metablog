@@ -4,11 +4,13 @@ import FeaturedBlogCard from "./FeaturedBlogCard";
 type BlogListProps = {
   blogs: any[];
   variant?: "homepage" | "my-blogs";
+  canDelete?: boolean;
 };
 
 export default function BlogList({
   blogs,
   variant = "homepage",
+  canDelete = false,
 }: BlogListProps) {
   if (!blogs || blogs.length === 0) {
     return <p className="text-gray-500 text-center">No blogs found.</p>;
@@ -39,7 +41,7 @@ export default function BlogList({
             <BlogCard
               key={blog.id}
               blog={blog}
-              canDelete={variant === "my-blogs"}
+              canDelete={canDelete}
             />
           ))}
         </div>
