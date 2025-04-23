@@ -68,11 +68,10 @@ export default function BlogCard({ blog, canDelete = false }: BlogCardProps) {
                 darkmode ? "border-white/10" : "border-gray-200"
               }`}
             >
-              <Image
+              <img
                 src={blog.thumbnail}
                 alt={blog.title}
-                fill
-                className="object-cover rounded-xl"
+                className="w-full h-full object-cover rounded-xl"
               />
             </div>
           </div>
