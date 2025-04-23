@@ -49,7 +49,7 @@ export default function FeaturedBlogCard({ blog }) {
           
           <div className="absolute bottom-0 w-full p-6 text-white">
             <div className="mb-4">
-              <span className="px-3 py-1 text-sm bg-blue-600 rounded-full">
+              <span className="px-3 py-1 text-sm bg-blue-600 rounded-md">
                 {categoryName}
               </span>
             </div>

@@ -2,6 +2,7 @@ import Header from "@/components/ui/Header";
 import Footer from "@/components/ui/Footer";
 import PageWrapper from "@/components/ui/PageWrapper";
 import FeaturedBlogCard from "@/components/ui/FeaturedBlogCard";
+import BlogCard from "@/components/ui/BlogCard";
 
 export default async function Homepage({
   searchParams,
@@ -22,6 +23,7 @@ export default async function Homepage({
       <Header />
       <main className="flex-grow">
         <FeaturedBlogCard blog={blogs[0]} />
+        <BlogCard blog={blogs[blogs.length - 2]} />
       </main>
       <Footer />
     </PageWrapper>
