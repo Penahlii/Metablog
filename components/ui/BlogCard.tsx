@@ -50,10 +50,10 @@ export default function BlogCard({ blog, canDelete = false }: BlogCardProps) {
   }, [blog]);
 
   return (
-    <div className="group relative w-[360px]">
+    <div className="group relative w-full">
       <div
         onClick={() => router.push(`/blog/${blog.id}`)}
-        className={`cursor-pointer`}
+        className={`cursor-pointer max-w-[420px] mx-auto w-full`}
       >
         <div
           className={`rounded-xl overflow-hidden shadow-md border transition-colors duration-300 ${
@@ -62,7 +62,7 @@ export default function BlogCard({ blog, canDelete = false }: BlogCardProps) {
               : "bg-white border-gray-200"
           }`}
         >
-          <div className="p-4 pt-5">
+          <div className="p-3">
             <div
               className={`relative aspect-[4/3] overflow-hidden rounded-xl border ${
                 darkmode ? "border-white/10" : "border-gray-200"
@@ -76,7 +76,7 @@ export default function BlogCard({ blog, canDelete = false }: BlogCardProps) {
             </div>
           </div>
 
-          <div className="p-5">
+          <div className="p-4">
             <div className="mb-3">
               <span
                 className={`px-3 py-1 text-sm rounded-md font-medium ${
