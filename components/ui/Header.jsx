@@ -7,9 +7,11 @@ import { ThemeToggle } from "./themetoggle";
 import { useThemeStore } from "@/store/theme";
 import SignInButton from "./SignInButton";
 import SearchInput from "./SearchInput";
+import { useUser } from "@/hooks/useUser";
 
 const Header = () => {
   const { darkmode } = useThemeStore((state) => state);
+  const user = useUser();
 
   const navLinkClass = `hover:underline transition-colors duration-200 ${
     darkmode
@@ -41,7 +43,10 @@ const Header = () => {
             </Link>
           </li>
           <li>
-            <Link className={navLinkClass} href="/author-blogs">
+            <Link
+              className={navLinkClass}
+              href={user ? `/author-blogs/?author=${user.id}` : "/author-blogs"}
+            >
               My Blogs
             </Link>
           </li>
