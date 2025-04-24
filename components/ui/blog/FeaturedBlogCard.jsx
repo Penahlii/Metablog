@@ -4,12 +4,14 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { format } from "date-fns";
 import { useThemeStore } from "@/store/theme";
+import { useRouter } from "next/navigation";
 
 export default function FeaturedBlogCard({ blog }) {
   const { darkmode } = useThemeStore();
   const [categoryName, setCategoryName] = useState("");
   const [authorEmail, setAuthorEmail] = useState("");
   const [showFullTitle, setShowFullTitle] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     const fetchDetails = async () => {
@@ -73,7 +75,7 @@ export default function FeaturedBlogCard({ blog }) {
               <button
                 onClick={(e) => {
                   e.preventDefault();
-                  window.location.href = `mailto:${authorEmail}`;
+                  router.push(`/author-blogs/?author=${blog.author}`); // Should Change with IMPORTANT ONE
                 }}
                 className="hover:text-blue-400 transition-colors"
               >
