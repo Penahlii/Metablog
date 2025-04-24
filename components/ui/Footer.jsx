@@ -27,6 +27,7 @@ export default function Footer() {
 
   return (
     <footer
+      id="Footer"
       className={`${darkmode ? "bg-[#141624] border-[#242535]" : "bg-[#f6f6f7] border-gray-200"} text-gray-700 text-sm border-t`}
     >
       <div className="container px-4 py-12 flex flex-col md:flex-row justify-between gap-8">

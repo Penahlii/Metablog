@@ -75,7 +75,7 @@ export default function FeaturedBlogCard({ blog }) {
               <button
                 onClick={(e) => {
                   e.preventDefault();
-                  router.push(`/author-blogs/?author=${blog.author}`); // Should Change with IMPORTANT ONE
+                  router.push(`/author-blogs/?author=${blog.author}`);
                 }}
                 className="hover:text-blue-400 transition-colors"
               >

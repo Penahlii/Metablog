@@ -51,9 +51,9 @@ const Header = () => {
             </Link>
           </li>
           <li>
-            <Link className={navLinkClass} href="/contact">
+            <a className={navLinkClass} href="#Footer">
               Contact
-            </Link>
+            </a>
           </li>
         </ul>
 
