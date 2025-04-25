@@ -38,7 +38,11 @@ export default async function AuthorBlogs({
       {authMain?.email && <AuthorInfoBox email={authMain.email} />}
       <main className="flex-grow">
         {blogs.length && <LatestPostTitle />}
-        <BlogList blogs={blogs} variant="my-blogs" canDelete={isCurrentUser} />
+        <BlogList
+          initialBlogs={blogs}
+          author={author}
+          canDelete={isCurrentUser}
+        />
       </main>
       <Footer />
     </PageWrapper>

@@ -7,16 +7,17 @@ export async function GET(req: NextRequest) {
 
   const category = searchParams.get("category");
   const author = searchParams.get("author");
+  const limit = parseInt(searchParams.get("limit") || "6");
+  const offset = parseInt(searchParams.get("offset") || "0");
 
-  let query = supabase.from("blogs").select("*");
+  let query = supabase
+    .from("blogs")
+    .select("*")
+    .order("created_at", { ascending: false })
+    .range(offset, offset + limit - 1);
 
-  if (category) {
-    query = query.eq("category", category);
-  }
-
-  if (author) {
-    query = query.eq("author", author);
-  }
+  if (category) query = query.eq("category", category);
+  if (author) query = query.eq("author", author);
 
   const { data, error } = await query;
 

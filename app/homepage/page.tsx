@@ -21,7 +21,7 @@ export default async function Homepage({
     <PageWrapper>
       <Header />
       <main className="flex-grow">
-        <BlogList blogs={blogs} />
+        <BlogList initialBlogs={blogs} category={category} />
       </main>
       <Footer />
     </PageWrapper>
