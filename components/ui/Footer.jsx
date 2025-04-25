@@ -5,10 +5,12 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useThemeStore } from "@/store/theme";
 import FooterLink from "./FooterLink";
+import { useUser } from "@/hooks/useUser";
 
 export default function Footer() {
   const { darkmode } = useThemeStore((state) => state);
   const [categories, setCategories] = useState([]);
+  const user = useUser();
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -70,10 +72,16 @@ export default function Footer() {
                 <FooterLink href="/write-blog">Write a Blog</FooterLink>
               </li>
               <li>
-                <FooterLink href="/my-blogs">My Blogs</FooterLink>
+                <FooterLink
+                  href={
+                    user ? `/author-blogs/?author=${user.id}` : "/author-blogs"
+                  }
+                >
+                  My Blogs
+                </FooterLink>
               </li>
               <li>
-                <FooterLink href="/contact">Contact</FooterLink>
+                <FooterLink href="/">Contact</FooterLink>
               </li>
             </ul>
           </div>
@@ -126,9 +134,9 @@ export default function Footer() {
           </div>
         </div>
         <div className="space-x-4 text-right w-full md:w-auto">
-          <FooterLink href="/terms">Terms of Use</FooterLink>
-          <FooterLink href="/privacy">Privacy Policy</FooterLink>
-          <FooterLink href="/cookies">Cookie Policy</FooterLink>
+          <FooterLink href="/">Terms of Use</FooterLink>
+          <FooterLink href="/">Privacy Policy</FooterLink>
+          <FooterLink href="/">Cookie Policy</FooterLink>
         </div>
       </div>
     </footer>
