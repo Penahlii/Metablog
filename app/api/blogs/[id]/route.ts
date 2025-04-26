@@ -17,10 +17,6 @@ export async function GET(
     error: userError,
   } = await supabase.auth.getUser();
 
-  if (userError || !user) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
-
   const { data: blog, error: blogError } = await supabase
     .from("blogs")
     .select("*")
@@ -81,7 +77,7 @@ export async function PATCH(
   // 2. Fetch the blog and check if the user owns it
   const { data: blog, error: blogError } = await supabase
     .from("blogs")
-    .select("id, author") // only fetch id and owner info
+    .select("id, author")
     .eq("id", id)
     .single();
 
