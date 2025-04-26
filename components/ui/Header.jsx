@@ -8,6 +8,7 @@ import { useThemeStore } from "@/store/theme";
 import SignInButton from "./SignInButton";
 import SearchInput from "./SearchInput";
 import { useUser } from "@/hooks/useUser";
+import LogoutButton from "./LogoutButton";
 
 const Header = () => {
   const { darkmode } = useThemeStore((state) => state);
@@ -60,7 +61,7 @@ const Header = () => {
         <div className="flex items-center gap-4">
           <SearchInput />
           <ThemeToggle />
-          <SignInButton />
+          {user ? <LogoutButton /> : <SignInButton />}
         </div>
       </div>
     </header>

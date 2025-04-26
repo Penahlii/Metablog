@@ -49,6 +49,24 @@ export default function BlogCard({ blog, canDelete = false }: BlogCardProps) {
     fetchDetails();
   }, [blog]);
 
+  const handleDelete = async () => {
+    try {
+      const res = await fetch(`/api/blogs/${blog.id}`, {
+        method: "DELETE",
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || "Failed to delete the blog");
+      }
+
+      router.refresh();
+    } catch (error) {
+      console.error("Error deleting blog:", error);
+    }
+  };
+
   return (
     <div className="group relative w-full">
       <div
@@ -126,10 +144,7 @@ export default function BlogCard({ blog, canDelete = false }: BlogCardProps) {
 
       {canDelete && (
         <button
-          onClick={(e) => {
-            e.preventDefault();
-            console.log("Delete blog:", blog.id);
-          }}
+          onClick={handleDelete}
           className={`absolute top-4 right-4 p-2 rounded-full bg-red-500 text-white opacity-0 
             group-hover:opacity-100 transition-opacity hover:bg-red-600`}
         >
