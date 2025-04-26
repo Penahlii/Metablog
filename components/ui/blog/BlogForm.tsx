@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { useThemeStore } from "@/store/theme";
 
 interface BlogFormProps {
   id?: string;
@@ -14,6 +15,7 @@ interface Category {
 
 export default function BlogForm({ id }: BlogFormProps) {
   const router = useRouter();
+  const { darkmode } = useThemeStore();
 
   const [formData, setFormData] = useState({
     title: "",
@@ -106,7 +108,9 @@ export default function BlogForm({ id }: BlogFormProps) {
   };
 
   return (
-    <div className="w-[768px] mx-auto px-6 py-12">
+    <div
+      className={`w-[768px] mx-auto px-6 py-12 ${darkmode ? "bg-[#181a2a] text-white" : ""}`}
+    >
       <h1 className="text-4xl font-bold text-center mb-12">
         {id ? "Edit your blog" : "Write a new blog"}
       </h1>
@@ -119,7 +123,11 @@ export default function BlogForm({ id }: BlogFormProps) {
           value={formData.title}
           onChange={handleChange}
           placeholder="Add title for blog"
-          className="border border-gray-300 rounded-lg p-5 text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className={`border rounded-lg p-5 text-lg focus:outline-none focus:ring-2 ${
+            darkmode
+              ? "bg-[#141624] border-[#242535] text-white focus:ring-yellow-400"
+              : "border-gray-300 text-black focus:ring-blue-500"
+          }`}
         />
 
         {/* Category */}
@@ -127,7 +135,11 @@ export default function BlogForm({ id }: BlogFormProps) {
           name="categoryId"
           value={formData.categoryId}
           onChange={handleChange}
-          className="border border-gray-300 rounded-lg p-5 text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className={`border rounded-lg p-5 text-lg focus:outline-none focus:ring-2 ${
+            darkmode
+              ? "bg-[#141624] border-[#242535] text-white focus:ring-yellow-400"
+              : "border-gray-300 text-black focus:ring-blue-500"
+          }`}
         >
           <option value="">Select category</option>
           {categories.map((cat) => (
@@ -144,7 +156,11 @@ export default function BlogForm({ id }: BlogFormProps) {
           value={formData.thumbnail}
           onChange={handleChange}
           placeholder="Add thumbnail image URL"
-          className="border border-gray-300 rounded-lg p-5 text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className={`border rounded-lg p-5 text-lg focus:outline-none focus:ring-2 ${
+            darkmode
+              ? "bg-[#141624] border-[#242535] text-white focus:ring-yellow-400"
+              : "border-gray-300 text-black focus:ring-blue-500"
+          }`}
         />
 
         {/* Body */}
@@ -154,14 +170,22 @@ export default function BlogForm({ id }: BlogFormProps) {
           onChange={handleChange}
           placeholder="Add blog body"
           rows={15}
-          className="border border-gray-300 rounded-lg p-5 text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+          className={`border rounded-lg p-5 text-lg focus:outline-none focus:ring-2 resize-none ${
+            darkmode
+              ? "bg-[#141624] border-[#242535] text-white focus:ring-yellow-400"
+              : "border-gray-300 text-black focus:ring-blue-500"
+          }`}
         ></textarea>
 
         {/* Submit Button */}
         <button
           onClick={handleSubmit}
           disabled={isSubmitting}
-          className="bg-yellow-400 text-black font-bold py-5 text-lg rounded-lg hover:bg-yellow-500 transition-all"
+          className={`font-bold py-5 text-lg rounded-lg transition-all ${
+            darkmode
+              ? "bg-yellow-400 text-black hover:bg-yellow-500"
+              : "bg-yellow-400 text-black hover:bg-yellow-500"
+          }`}
         >
           {isSubmitting
             ? id
