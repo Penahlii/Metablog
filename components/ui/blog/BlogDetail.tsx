@@ -60,7 +60,7 @@ export default function BlogDetail({ id }: BlogDetailProps) {
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="max-w-4xl mx-auto p-6"
+      className="max-w-4xl mx-auto p-6 pb-20"
     >
       {/* Category Badge */}
       <div className="mb-5">
