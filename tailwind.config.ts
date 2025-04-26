@@ -1,13 +1,14 @@
 import type { Config } from "tailwindcss";
 const flowbiteReact = require("flowbite-react/plugin/tailwindcss");
 
-const config = {
+const config: Config = {
   darkMode: ["class"],
   content: [
     "./pages/**/*.{js,jsx,ts,tsx}",
     "./components/**/*.{js,jsx,ts,tsx}",
     "./app/**/*.{js,jsx,ts,tsx}",
     "./src/**/*.{js,jsx,ts,tsx}",
+    "./node_modules/flowbite-react/**/*.js", // ✅ important for flowbite
   ],
   prefix: "",
   theme: {
@@ -75,7 +76,11 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
-} satisfies Config;
+  plugins: [
+    require("tailwindcss-animate"), // ✅ animate plugin
+    require("@tailwindcss/typography"), // ✅ add typography plugin
+    flowbiteReact, // ✅ enable flowbite-react plugin
+  ],
+};
 
 export default config;

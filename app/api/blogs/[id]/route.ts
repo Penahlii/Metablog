@@ -31,10 +31,6 @@ export async function GET(
     return NextResponse.json({ error: "Blog not found" }, { status: 404 });
   }
 
-  if (blog.author !== user.id) {
-    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
-  }
-
   return NextResponse.json(blog);
 }
 

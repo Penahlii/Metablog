@@ -93,8 +93,7 @@ export default function BlogForm({ id }: BlogFormProps) {
       });
 
       if (res.ok) {
-        alert(id ? "Blog updated successfully!" : "Blog created successfully!");
-        router.push("/my-blogs");
+        router.push("/");
       } else {
         const errorData = await res.json();
         alert(errorData.error || "Something went wrong!");
