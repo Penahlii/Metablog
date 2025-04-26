@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { format } from "date-fns";
 import { useThemeStore } from "@/store/theme";
 import { useRouter } from "next/navigation";
@@ -70,7 +69,7 @@ export default function BlogCard({ blog, canDelete = false }: BlogCardProps) {
   return (
     <div className="group relative w-full">
       <div
-        onClick={() => router.push(`/blog/${blog.id}`)}
+        onClick={() => router.push(`/blogs/${blog.id}`)}
         className={`cursor-pointer max-w-[420px] mx-auto w-full transition-transform duration-300 ease-in-out group-hover:scale-[1.02]`}
       >
         <div
@@ -87,7 +86,10 @@ export default function BlogCard({ blog, canDelete = false }: BlogCardProps) {
               }`}
             >
               <img
-                src={blog.thumbnail}
+                src={
+                  blog.thumbnail ||
+                  "https://img.freepik.com/free-vector/404-error-with-landscape-concept-illustration_114360-7898.jpg"
+                }
                 alt={blog.title}
                 className="w-full h-full object-cover rounded-xl"
               />

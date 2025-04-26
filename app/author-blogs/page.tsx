@@ -37,7 +37,7 @@ export default async function AuthorBlogs({
       <Header />
       {authMain?.email && <AuthorInfoBox email={authMain.email} />}
       <main className="flex-grow">
-        {blogs.length && <LatestPostTitle />}
+        {blogs.length > 0 && <LatestPostTitle />}
         <BlogList
           initialBlogs={blogs}
           author={author}

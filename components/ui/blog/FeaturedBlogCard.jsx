@@ -43,13 +43,13 @@ export default function FeaturedBlogCard({ blog }) {
   return (
     <div className="relative container px-4 h-[500px] rounded-[12px] overflow-hidden group cursor-pointer mb-16 transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl">
       <Link
-        href={`/blog/${blog.id}`}
+        href={`/blogs/${blog.id}`}
         className="block h-full rounded-[12px] overflow-hidden"
       >
         <div
           className="relative h-full w-full rounded-[12px] overflow-hidden object-cover"
           style={{
-            backgroundImage: `url(${blog.thumbnail})`,
+            backgroundImage: `url(${blog.thumbnail || "https://img.freepik.com/free-vector/404-error-with-landscape-concept-illustration_114360-7898.jpg"})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
