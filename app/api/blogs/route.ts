@@ -7,6 +7,7 @@ export async function GET(req: NextRequest) {
 
   const category = searchParams.get("category");
   const author = searchParams.get("author");
+  const searchQuery = searchParams.get("search");
   const limit = parseInt(searchParams.get("limit") || "6");
   const offset = parseInt(searchParams.get("offset") || "0");
 
@@ -18,6 +19,9 @@ export async function GET(req: NextRequest) {
 
   if (category) query = query.eq("category", category);
   if (author) query = query.eq("author", author);
+  if (searchQuery) {
+    query = query.or(`title.ilike.%${searchQuery}%,body.ilike.%${searchQuery}%`);
+  }
 
   const { data, error } = await query;
 

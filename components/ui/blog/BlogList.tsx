@@ -9,6 +9,7 @@ type BlogListProps = {
   category?: string;
   author?: string;
   canDelete?: boolean;
+  searchQuery?: string;
 };
 
 export default function BlogList({
@@ -16,6 +17,7 @@ export default function BlogList({
   category,
   author,
   canDelete = false,
+  searchQuery,
 }: BlogListProps) {
   const [blogs, setBlogs] = useState(initialBlogs);
   const [page, setPage] = useState(1);
@@ -38,6 +40,7 @@ export default function BlogList({
 
     if (category) params.append("category", category);
     if (author) params.append("author", author);
+    if (searchQuery) params.append("search", searchQuery);
 
     const res = await fetch(`/api/blogs?${params.toString()}`);
     const newBlogs = await res.json();
